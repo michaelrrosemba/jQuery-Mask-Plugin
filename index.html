@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Unlock Access</title>
+  <script src="dist/jquery.mask.min.js"></script>
+  <style>
+    body { font-family: Arial; padding: 2rem; }
+    .locked { color: red; }
+    .unlocked { color: green; }
+  </style>
+</head>
+<body>
+  <h1 id="status" class="locked">🔒 Locked</h1>
+  <p>To unlock, visit <a href="https://buy.stripe.com/aFa00jcXB5IL5PB6Hc4c800" target="_blank">this payment page</a>.</p>
+  <p>After payment, go to:<br>
+     <code>https://michaelrrosemba.github.io/jQuery-Mask-Plugin/?k=UNLOCK123</code>
+  </p>
+  <script>
+    try {
+      const k = new URLSearchParams(location.search).get("k");
+      if (k === "UNLOCK123") {
+        document.getElementById("status").textContent = "🔓 Unlocked";
+        document.getElementById("status").className = "unlocked";
+      }
+    } catch (e) {}
+  </script>
+</body>
+</html>
